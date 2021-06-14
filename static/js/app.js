@@ -29,8 +29,9 @@ function runEnter(event) {
     var filteredData = tableData.filter(dateobs => dateobs.datetime === inputValue);
     console.log(filteredData)
 
-    var tempbody = d3.select('#ufo-table');
-    data.forEach(filteredData => {
+    var tempbody = d3.select('tbody');
+        tempbody.html("")
+        data.forEach(filteredData => {
         var temprow = tempbody.append('tr')
         Object.entries(filteredData).forEach(([ key, value ]) => {
             var tabledata = temprow.append('td')
