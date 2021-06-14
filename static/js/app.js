@@ -1,5 +1,6 @@
 // from data.js
 var tableData = data;
+// console.log(tableData)
 
 // Select the button
 var button = d3.select("#filter-btn");
@@ -27,4 +28,13 @@ function runEnter(event) {
     // Use the form input to filter the data by blood type
     var filteredData = tableData.filter(dateobs => dateobs.datetime === inputValue);
     console.log(filteredData)
+
+    var tempbody = d3.select('#ufo-table');
+    data.forEach(filteredData => {
+        var temprow = tempbody.append('tr')
+        Object.entries(filteredData).forEach(([ key, value ]) => {
+            var tabledata = temprow.append('td')
+            tabledata.text(value)
+    })
+  })
 }
